@@ -31,6 +31,19 @@ or Run `__init__.py` from the Python panel); the agent does everything below fro
   `renderdoc`, `qrenderdoc`, `_reports` (the report functions, callable directly).
 - `GET /shutdown` — stop the server. Only call to hand the port back, never mid-session.
 
+## Bundled client
+
+`scripts/rdc.js` (node 18+, no dependencies) wraps the endpoints so you don't hand-roll
+fetch calls. From a shell:
+
+- `node rdc.js status` — liveness + capture (start here)
+- `node rdc.js reports` — available analyses
+- `node rdc.js report frame_overview` / `node rdc.js report pass_tree '{"depth":2}'`
+- `node rdc.js exec snippet.py` — or pipe code via stdin
+- `node rdc.js shutdown` — hand the port back
+
+Prefer `/report/*` over `/exec` for standard questions — one call, no code to write.
+
 ## /exec discipline
 
 - Aggregate server-side, print small summaries. Never dump full action/texture lists.
