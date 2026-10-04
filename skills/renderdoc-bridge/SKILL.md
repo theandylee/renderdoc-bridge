@@ -1,16 +1,20 @@
-# Agent briefing: RenderDoc bridge
+---
+name: renderdoc-bridge
+description: Inspect a live RenderDoc capture (frame structure, draws, textures, pipeline state) via the renderdoc-bridge extension's localhost HTTP API. Use when the user asks about a RenderDoc capture, frame contents, drawcalls, GPU resources, or says the bridge/server is running in RenderDoc.
+---
 
-This repo is a RenderDoc UI extension that exposes the open capture over localhost HTTP
-so a coding agent can inspect frames. The human runs RenderDoc and starts the bridge
-(`Tools -> Agent Bridge -> Start bridge`, or Run `__init__.py` from the Python panel);
-the agent does everything below from its own side.
+# RenderDoc Bridge
+
+A RenderDoc UI extension an agent can query over localhost HTTP to inspect the open capture.
+The human runs RenderDoc and starts the bridge (`Tools -> Agent Bridge -> Start bridge`,
+or Run `__init__.py` from the Python panel); the agent does everything below from its own side.
 
 ## Connection
 
 - Base: `http://127.0.0.1:38921`, token `renderdoc-bridge`
 - Auth: `?token=renderdoc-bridge` query param or `X-Bridge-Token` header. No token -> 403 JSON.
-- Binds localhost only. If you use curl from a shell, prefer your JS `fetch` — it reaches
-  localhost directly, takes JSON bodies inline, and parallelizes with `Promise.all`.
+- Binds localhost only. Use `fetch` — it reaches localhost directly, takes JSON bodies inline,
+  and parallelizes with `Promise.all`.
 
 ## Endpoints
 

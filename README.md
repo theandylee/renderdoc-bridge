@@ -36,5 +36,7 @@ Binds `127.0.0.1:38921` only. Token: `renderdoc-bridge` (see `TOKEN` in `__init_
 
 Query example (agent side): `curl "http://127.0.0.1:38921/status?token=renderdoc-bridge"`
 
+Agent usage briefing: `skills/renderdoc-bridge/SKILL.md`. Bridge development notes: `AGENTS.md`.
+
 Note: `/exec` runs on a server thread. Reads (event names, action tree,
 pipeline state) are fine; avoid issuing replays from two places at once.
