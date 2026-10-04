@@ -1,0 +1,9 @@
+{
+    "extension_api": 1,
+    "name": "RenderDoc Bridge",
+    "version": "1.0",
+    "minimum_renderdoc": "1.0",
+    "description": "Localhost HTTP bridge so an AI coding agent can inspect the open capture. Listens on 127.0.0.1 only. See tools/renderdoc_bridge/README.md",
+    "author": "",
+    "url": ""
+}
